@@ -1,0 +1,1 @@
+microk8s kubectl create token pintol-serviceaccount -n pintol --duration=8760h

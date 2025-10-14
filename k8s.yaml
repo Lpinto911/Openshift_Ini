@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   name: pintol
   labels:
-    istio-injection: enable
+    istio-injection: enabled
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: contenedor-principal
-          image: forcet22/hola-node:1.0.0  # <-- Reemplaza con la imagen que quieras usar
+          image: lpintofsgrp/practica:1 # <-- Reemplaza con la imagen que quieras usar
           ports:
             - containerPort: 3000
           envFrom:
@@ -64,3 +64,5 @@ metadata:
 type: Opaque
 data:
   PASSWORD: aG9sYQ==
+
+---
