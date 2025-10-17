@@ -33,3 +33,25 @@ roleRef:
   kind: Role
   name: dashboard-pintol # El rol que creamos
   apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: global-reader
+rules:
+- apiGroups: [""]
+  resources: ["namespaces"]
+  verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: pintol-global-readonly-binding
+subjects:
+- kind: ServiceAccount
+  name: pintol-serviceaccount # La cuenta de servicio que creamos
+  namespace: pintol
+roleRef:
+  kind: ClusterRole
+  name: global-reader # El rol que creamos
+  apiGroup: rbac.authorization.k8s.io
