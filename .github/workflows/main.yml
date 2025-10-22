@@ -41,6 +41,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Install OC CLI
         run: |
           curl -L https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz | tar xz
@@ -51,3 +54,8 @@ jobs:
         with:
           openshift_server_url: https://api.rm1.0a51.p1.openshiftapps.com:6443
           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
+      
+      - name: Deploy files
+        run: |
+          oc project lpintofsgrp-dev
+          oc apply -f oc.yaml
