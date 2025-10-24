@@ -8,13 +8,13 @@ WORKDIR /app
 # Copia el script al contenedor
 COPY app.py .
 
-# Instala Flask
-RUN pip install flask
+# Instala Flask y Requests
+RUN pip install flask requests
 
-#permisos a la carpeta
+# Permisos a la carpeta
 RUN chown -R appuser:appgroup /app
 
-#Ejecutar con ese usuario
+# Ejecutar con ese usuario
 USER appuser
 
 # Expone el puerto en el que correrá la app
