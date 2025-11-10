@@ -9,5 +9,5 @@ jobs:
   build-and-deploy:
     uses: Lpinto911/devops-pipelines-/.github/workflows/docker-workflow.yml@main
     with:
-      docker_image_name: practicabase:1
+      docker_image_name: practica
     secrets: inherit
